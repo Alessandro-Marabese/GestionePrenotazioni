@@ -62,6 +62,7 @@ public class PrenotazioneService {
                 .utente(utente)
                 .build();
 
+
         prenotazioneRepository.save(prenotazione);
 
         return "Prenotazione effettuata con successo";

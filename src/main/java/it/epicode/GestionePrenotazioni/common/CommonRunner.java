@@ -71,7 +71,6 @@ public class CommonRunner implements CommandLineRunner {
                 .tipo(TipoPostazione.PRIVATO)
                 .numeroMassimoOccupanti(1)
                 .edificio(edificio1)
-                .disponibile(true)
                 .build();
 
         Postazione postazione2 = Postazione.builder()
@@ -80,7 +79,6 @@ public class CommonRunner implements CommandLineRunner {
                 .tipo(TipoPostazione.SALA_RIUNIONI)
                 .numeroMassimoOccupanti(6)
                 .edificio(edificio1)
-                .disponibile(true)
                 .build();
 
         Postazione postazione3 = Postazione.builder()
@@ -89,7 +87,6 @@ public class CommonRunner implements CommandLineRunner {
                 .tipo(TipoPostazione.OPENSPACE)
                 .numeroMassimoOccupanti(4)
                 .edificio(edificio2)
-                .disponibile(true)
                 .build();
 
         Postazione postazione4 = Postazione.builder()
@@ -98,14 +95,25 @@ public class CommonRunner implements CommandLineRunner {
                 .tipo(TipoPostazione.PRIVATO)
                 .numeroMassimoOccupanti(2)
                 .edificio(edificio2)
-                .disponibile(true)
                 .build();
 
         //postazioneRepository.saveAll(List.of(postazione1, postazione2, postazione3, postazione4));
 
 
+        /*System.out.println("******************");
+        System.out.println(prenotazioneService.prenotaPostazione("lbianchi", "MIL-01", LocalDate.now().plusDays(3)));
         System.out.println("******************");
-        System.out.println(prenotazioneService.prenotaPostazione("lbianchi", "MIL-01", LocalDate.now()));
+
+        System.out.println("******************");
+        System.out.println(prenotazioneService.prenotaPostazione("mrossi", "ROM-01", LocalDate.now().plusDays(4)));
+        System.out.println("******************");
+
+        System.out.println("******************");
+        System.out.println(prenotazioneService.prenotaPostazione("mrossi", "ROM-02", LocalDate.now().plusDays(4)));
+        System.out.println("******************");*/
+
+        System.out.println("******************");
+        System.out.println(prenotazioneService.prenotaPostazione("mrossi", "MIL-02", LocalDate.now().plusDays(4)));
         System.out.println("******************");
     }
 }

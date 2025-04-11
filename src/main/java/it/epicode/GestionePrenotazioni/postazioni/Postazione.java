@@ -30,9 +30,9 @@ public class Postazione {
     @Enumerated(EnumType.STRING)
     private TipoPostazione tipo;
 
+    @Column
     private int numeroMassimoOccupanti;
 
-    private boolean disponibile;
 
     @ManyToOne
     @JoinColumn(name = "edificio_id")
