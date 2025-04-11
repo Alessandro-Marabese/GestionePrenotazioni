@@ -50,7 +50,7 @@ public class CommonRunner implements CommandLineRunner {
                 .email("laura.bianchi@gmail.com")
                 .build();
 
-        //utenteRepository.saveAll(List.of(utente1, utente2));
+        utenteRepository.saveAll(List.of(utente1, utente2));
 
         Edificio edificio1 = Edificio.builder()
                 .nome("Sede Milano")
@@ -64,7 +64,7 @@ public class CommonRunner implements CommandLineRunner {
                 .citta("Roma")
                 .build();
 
-        //edificioRepository.saveAll(List.of(edificio1, edificio2));
+        edificioRepository.saveAll(List.of(edificio1, edificio2));
 
         Postazione postazione1 = Postazione.builder()
                 .codice("MIL-01")
@@ -98,10 +98,10 @@ public class CommonRunner implements CommandLineRunner {
                 .edificio(edificio2)
                 .build();
 
-        //postazioneRepository.saveAll(List.of(postazione1, postazione2, postazione3, postazione4));
+        postazioneRepository.saveAll(List.of(postazione1, postazione2, postazione3, postazione4));
 
 
-        /*System.out.println("******************");
+        System.out.println("******************");
         System.out.println(prenotazioneService.prenotaPostazione("lbianchi", "MIL-01", LocalDate.now().plusDays(3)));
         System.out.println("******************");
 
@@ -110,8 +110,8 @@ public class CommonRunner implements CommandLineRunner {
         System.out.println("******************");
 
         System.out.println("******************");
-        System.out.println(prenotazioneService.prenotaPostazione("mrossi", "ROM-02", LocalDate.now().plusDays(4)));
-        System.out.println("******************");*/
+        System.out.println(prenotazioneService.prenotaPostazione("mrossi", "ROM-02", LocalDate.now().plusDays(6)));
+        System.out.println("******************");
 
         System.out.println("******************");
         System.out.println(prenotazioneService.prenotaPostazione("mrossi", "MIL-02", LocalDate.now().plusDays(5)));
@@ -166,6 +166,12 @@ public class CommonRunner implements CommandLineRunner {
         Utente user = utenteRepository.findByUsername("mrossi");
         Prenotazione prenotazioniByUtenteAndDataPrenotazione = prenotazioneRepository.findByUtenteAndDataPrenotazione(user, LocalDate.now().plusDays(5));
         System.out.println(prenotazioniByUtenteAndDataPrenotazione);
+        System.out.println("******************");
+
+        System.out.println("******************");
+        Postazione post = postazioneRepository.findByCodice("MIL-02");
+        Prenotazione prenotazioniByPostazioneAndDataPrenotazione = prenotazioneRepository.findByPostazioneAndDataPrenotazione(post, LocalDate.now().plusDays(5));
+        System.out.println(prenotazioniByPostazioneAndDataPrenotazione);
         System.out.println("******************");
     }
 }
