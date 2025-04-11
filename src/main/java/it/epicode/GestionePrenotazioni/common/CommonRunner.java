@@ -36,6 +36,7 @@ public class CommonRunner implements CommandLineRunner {
     private PrenotazioneService prenotazioneService;
 
     @Override
+
     public void run(String... args) throws Exception {
         Utente utente1 = Utente.builder()
                 .username("mrossi")
@@ -113,7 +114,58 @@ public class CommonRunner implements CommandLineRunner {
         System.out.println("******************");*/
 
         System.out.println("******************");
-        System.out.println(prenotazioneService.prenotaPostazione("mrossi", "MIL-02", LocalDate.now().plusDays(4)));
+        System.out.println(prenotazioneService.prenotaPostazione("mrossi", "MIL-02", LocalDate.now().plusDays(5)));
+        System.out.println("******************");
+
+        System.out.println("******************");
+        postazioneRepository.findByTipoAndEdificio_Citta(TipoPostazione.PRIVATO, "Milano").forEach(System.out::println);
+        System.out.println("******************");
+
+        System.out.println("******************");
+        Postazione postazioneByCodice = postazioneRepository.findByCodice("ROM-02");
+        System.out.println(postazioneByCodice);
+        System.out.println("******************");
+
+        System.out.println("******************");
+        Utente utenteByUsername = utenteRepository.findByUsername("mrossi");
+        System.out.println(utenteByUsername);
+        System.out.println("******************");
+
+        System.out.println("******************");
+        Utente utenteByNomeCompleto = utenteRepository.findByNomeCompleto("Laura Bianchi");
+        System.out.println(utenteByNomeCompleto);
+        System.out.println("******************");
+
+        System.out.println("******************");
+        Utente utenteByEmail = utenteRepository.findByEmail("laura.bianchi@gmail.com");
+        System.out.println(utenteByEmail);
+        System.out.println("******************");
+
+        System.out.println("******************");
+        Edificio edificioByNome = edificioRepository.findByNome("Sede Milano");
+        System.out.println(edificioByNome);
+        System.out.println("******************");
+
+        System.out.println("******************");
+        Edificio edificioByIndirizzo = edificioRepository.findByIndirizzo("Via Appia 42");
+        System.out.println(edificioByIndirizzo);
+        System.out.println("******************");
+
+        System.out.println("******************");
+        List<Edificio> edificiByCitta = edificioRepository.findAllByCitta("Milano");
+        System.out.println(edificiByCitta);
+        System.out.println("******************");
+
+        System.out.println("******************");
+        Utente utente = utenteRepository.findByUsername("mrossi");
+        List<Prenotazione> prenotazioniByUtente = prenotazioneRepository.findByUtente(utente);
+        System.out.println(prenotazioniByUtente);
+        System.out.println("******************");
+
+        System.out.println("******************");
+        Utente user = utenteRepository.findByUsername("mrossi");
+        Prenotazione prenotazioniByUtenteAndDataPrenotazione = prenotazioneRepository.findByUtenteAndDataPrenotazione(user, LocalDate.now().plusDays(5));
+        System.out.println(prenotazioniByUtenteAndDataPrenotazione);
         System.out.println("******************");
     }
 }

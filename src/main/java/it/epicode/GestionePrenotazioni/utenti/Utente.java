@@ -31,4 +31,13 @@ public class Utente {
 
     @OneToMany(mappedBy = "utente")
     private List<Prenotazione> prenotazioni;
+
+    @Override
+    public String toString() {
+        return "Utente{" +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", nomeCompleto='" + nomeCompleto + '\'' +
+                '}';
+    }
 }
